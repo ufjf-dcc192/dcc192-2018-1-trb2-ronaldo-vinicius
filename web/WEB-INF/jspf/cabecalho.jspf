@@ -6,16 +6,20 @@
               content="text/html; charset=UTF-8" />
         <title><%=request.getAttribute("titulo")%></title>
         <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/colour.css">
+        <link rel="stylesheet" href="css/template.css">
     </head>
     <body>
         <header>
-            <h1>Hello World!</h1>
-            <div>São <%=new Date()%></div>
+            <h1>Amigo Oculto</h1>
+            <div>Hoje é: </div>
         </header>
         <aside>
             <menu>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="teste.html">Teste</a></li>
+                <li><a href="teste.html">Participantes</a></li>
+                <li><a href="teste.html">Sortear</a></li>
+                <li><a href="teste.html">VerAmigo</a></li>
             </menu>
         </aside>
         <main>

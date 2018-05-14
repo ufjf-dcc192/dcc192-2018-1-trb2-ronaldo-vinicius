@@ -3,7 +3,7 @@ header, footer {
 }
 
 html{
-    width: 400px;
+    width: 500px;
     margin: auto;
 }
 
@@ -16,7 +16,7 @@ menu{
 }
 menu li{
     display: inline-block;
-    width: 50px;
+    width: 100px;
     text-align: center;
 
 }
