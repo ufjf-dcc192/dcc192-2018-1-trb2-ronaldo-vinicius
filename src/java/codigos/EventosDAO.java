@@ -31,7 +31,7 @@ public class EventosDAO {
         }
     }
     
-    public List<Evento> listAll() {
+    public List<Evento> listEventos() {
         List<Evento> tarefas = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
@@ -49,5 +49,25 @@ public class EventosDAO {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return tarefas;
+    }
+    
+    void createEvento(String titulo, Float minimo, String data, String sorteio) {
+        try {
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate(String.format("INSERT INTO EVENTO(titulo, minimo, data, sorteio) VALUES('%s','%s','%s','%s')", titulo, minimo, data, sorteio));
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    void deleteEvento(Long id){
+        try {
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate(String.format("DELETE FROM EVENTO WHERE id=%d", id));
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
