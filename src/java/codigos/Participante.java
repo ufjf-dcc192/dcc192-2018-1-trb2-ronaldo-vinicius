@@ -5,12 +5,6 @@
  */
 package codigos;
 
-import java.util.Date;
-
-/**
- *
- * @author ice
- */
 public class Participante {
 
     public String codigo;
