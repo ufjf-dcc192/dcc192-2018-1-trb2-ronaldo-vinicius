@@ -1,24 +1,32 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../jspf/cabecalho.jspf" %>
-<p>Tarefas a serem feitas:</p>
-<p><a href="tarefa-nova.html">[Adicionar]</a></p>
+<p>Eventos de Amigo Oculto:</p>
+<p><a href="novoevento.html">[Criar Evento]</a></p>
+<!--https://docs.google.com/document/d/10MoReDSczzfsYwgdFi-xP9vyRuH6roXi-mKBznrMK4k/edit#-->
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>Título</th>
-            <th>Ações</th>
+            <th>Títulos</th>
+            <th>Preço Mínimo</th>
+            <th>Data de Criação</th>
+            <th>Data do Sorteio</th>
+            <th>Ação</th>
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="tarefa" items="${tarefas}">
+        <c:forEach var="evento" items="${eventos}">
             <tr>
-                <td>${tarefa.id}</td>
-                <td>${tarefa.titulo}</td>
+                <td>${evento.codigo}</td>
+                <td>${evento.titulo}</td>
+                <td>${evento.minimo}</td>
+                <td>${evento.data}</td>
+                <td>${evento.sorteio}</td>
                 <td>
-                    <form method="post" action="tarefa-exclui.html">
-                        <input type="hidden" name="id" value="${tarefa.id}" />
-                        <input type="submit" value="X"/>
+                    <form method="post" action="#">
+                        <input type="hidden" name="id" value="${evento.id}" />
+                        <input type="button" value="X"/>
+                        <!--<input type="submit" value="X"/>-->
                     </form>
                 </td>
             </tr>

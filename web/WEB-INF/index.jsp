@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="jspf/cabecalho.jspf" %>
-    <p>Bem vindo! Eventos disponíveis:</p>
-    <div class="grid_16">
+    <!--<p>Bem vindo! Eventos disponíveis:</p>-->
+<!--    <div class="grid_16">
         <table>
             <thead>
                 <tr>
@@ -24,5 +24,5 @@
             </tbody>
         </table>
     </div>
-    <br>
+    <br>-->
 <%@include file="jspf/rodape.jspf" %>
