@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package codigos;
 
 import java.util.Date;
-
-/**
- *
- * @author ice
- */
 public class Evento {
 
     public String codigo;
     public String titulos;
     public Float minimo;
-    public Date data;
-    public Date sorteio;
+    public String data;
+    public String sorteio;
 
-    public Evento(String codigo, String titulos, Float minimo, Date data, Date sorteio) {
+    public Evento(String codigo, String titulos, Float minimo, String data, String sorteio) {
         this.codigo = codigo;
         this.titulos = titulos;
         this.minimo = minimo;
@@ -57,20 +47,26 @@ public class Evento {
         this.minimo = minimo;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Date getSorteio() {
+    public String getSorteio() {
         return sorteio;
     }
 
-    public void setSorteio(Date sorteio) {
+    public void setSorteio(String sorteio) {
         this.sorteio = sorteio;
     }
+
+    @Override
+    public String toString() {
+        return codigo + " - " + titulos + " - " + minimo + " - " + data + " - " + sorteio;
+    }
+    
 
 }

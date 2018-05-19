@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,11 +36,14 @@ public class EventosDAO {
         List<Evento> eventos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT id, data, titulo from EVENTO");
+            ResultSet resultado = comando.executeQuery("SELECT id, titulo, minimo, data, sorteio from EVENTO");
             while (resultado.next()) {
                 Evento evento = new Evento();
                 evento.setCodigo(resultado.getString("id"));
                 evento.setTitulos(resultado.getString("titulo"));
+                evento.setMinimo(Float.parseFloat(resultado.getString("minimo")));
+                evento.setData(resultado.getString("data"));
+                evento.setSorteio(resultado.getString("sorteio"));
                 eventos.add(evento);
 
             }

@@ -13,7 +13,7 @@ public class ListarEventosCommand implements Comando{
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/list.jsp");
         List<Evento> eventos = EventosDAO.getInstance().listEventos();
-        request.setAttribute("titulo", "Lista de Eventos");
+        request.setAttribute("titulos", "Lista de Eventos");
         request.setAttribute("eventos", eventos);
         dispacher.forward(request, response);
     }

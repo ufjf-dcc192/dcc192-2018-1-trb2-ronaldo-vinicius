@@ -18,18 +18,19 @@
         <c:forEach var="evento" items="${eventos}">
             <tr>
                 <td>${evento.codigo}</td>
-                <td>${evento.titulo}</td>
+                <td>${evento.titulos}</td>
                 <td>${evento.minimo}</td>
                 <td>${evento.data}</td>
                 <td>${evento.sorteio}</td>
                 <td>
                     <form method="post" action="#">
-                        <input type="hidden" name="id" value="${evento.id}" />
-                        <input type="button" value="X"/>
+                        <input type="hidden" name="id" value="${evento.codigo}" />
+                        <input type="button" value="Excluir"/>
                         <!--<input type="submit" value="X"/>-->
                     </form>
+                    <a href="novoevento.html">Novo Evento</a> <a href="inscricao.html">Inscrever Participante</a>
                 </td>
-            </tr>
+        </tr>
         </c:forEach>
     </tbody>
 </table>

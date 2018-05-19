@@ -19,8 +19,6 @@
                 <ul>
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="eventos.html">Listar Eventos</a></li>
-                    <li><a href="novoevento.html">Criar Novo Evento</a></li>
-                    <li><a href="inscricao.html">Inscrever Participante</a></li>
                     <li><a href="inscritos.html">Listar Inscritos</a></li>
                     <li><a href="novoevento.html">Tarefas</a></li>
                     <!--"/index.html", "/eventos.html", "/novoevento.html", "/inscricao.html", "/inscritos.html", "/amigo.html"})-->
