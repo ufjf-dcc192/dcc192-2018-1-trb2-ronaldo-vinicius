@@ -11,7 +11,7 @@ public class ListarEventosCommand implements Comando{
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/list.jsp");
+        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/listEventos.jsp");
         List<Evento> eventos = EventosDAO.getInstance().listEventos();
         request.setAttribute("titulos", "Lista de Eventos");
         request.setAttribute("eventos", eventos);

@@ -20,7 +20,7 @@ public class NovoEventoCommand implements Comando{
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/new.jsp");
+        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/newEvento.jsp");
 //        List<Tarefa> tarefas = TarefaDAO.getInstance().listAll();
         request.setAttribute("titulo", "Novo Evento");
         dispacher.forward(request, response);

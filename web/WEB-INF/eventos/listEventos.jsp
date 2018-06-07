@@ -1,7 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../jspf/cabecalho.jspf" %>
 <p>Eventos de Amigo Oculto:</p>
-<p><a href="novoevento.html">[Criar Evento]</a></p>
 <!--https://docs.google.com/document/d/10MoReDSczzfsYwgdFi-xP9vyRuH6roXi-mKBznrMK4k/edit#-->
 <table>
     <thead>

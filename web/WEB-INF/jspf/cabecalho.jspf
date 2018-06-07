@@ -27,4 +27,4 @@
         </aside>
         <main>
             <article>
-                <h1><%=request.getAttribute("titulo")%></h1>
+                <h1></h1>

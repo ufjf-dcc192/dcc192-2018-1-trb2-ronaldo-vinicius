@@ -20,8 +20,8 @@ public class InscricaoEventoCommand implements Comando{
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/new.jsp");
-//        List<Tarefa> tarefas = TarefaDAO.getInstance().listAll();
+        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/inscricao.jsp");
+        List<Evento> tarefas = EventosDAO.getInstance().listEventos();
         request.setAttribute("titulo", "Inscrição Evento");
         dispacher.forward(request, response);
     }
