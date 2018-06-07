@@ -2,7 +2,18 @@
 <%@include file="../jspf/cabecalho.jspf" %>
 <p>Novo Evento</p>
 <form method="POST">
-    <input type="text" name="titulo" value="" />
-    <input type="submit" />
+    <label>
+        Titulo: 
+        <input type="text" name="titulo" value="" />
+    </label>
+    <label>
+        Valor Minimo: 
+        <input type="text" name="vlrMinimo" value="" />
+    </label>
+    <label>
+        Data Sorteio: 
+        <input type="text" name="dataSorteio" value="" />
+    </label>
+    <input type="submit" value="Gravar" me/>
 </form>
 <%@include file="../jspf/rodape.jspf" %>

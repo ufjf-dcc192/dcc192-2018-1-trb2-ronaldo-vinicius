@@ -1,6 +1,4 @@
 package codigos;
-
-import java.util.Date;
 public class Evento {
 
     public String codigo;

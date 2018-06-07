@@ -46,7 +46,7 @@ public class PrincipalServlet extends HttpServlet {
             throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/eventos.html", "codigos.ListarEventosCommand");
-        rotas.put("/novoevento.html", "codigos.NovoEventoCommand");
+        rotas.put("/novoevento.html", "codigos.NovoEventoCommandPost");
         rotas.put("/inscricao.html", "codigos.InscricaoEventoCommand");
         rotas.put("/amigo.html", "codigos.VerAmigoOcultoCommand");
         
