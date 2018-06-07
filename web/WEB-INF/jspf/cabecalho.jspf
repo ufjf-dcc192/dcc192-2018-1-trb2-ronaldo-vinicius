@@ -1,10 +1,11 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE HTML>
 <html>
     <head>
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8" />
-        <title><%=request.getAttribute("titulo")%></title>
+        <title>Amigo Oculto</title>
         <link rel="stylesheet" href="css/main.css" />
         <link rel="stylesheet" href="css/colour.css">
         <link rel="stylesheet" href="css/template.css">
@@ -12,7 +13,12 @@
     <body>
         <header>
             <h1>Amigo Oculto</h1>
-            <div>Hoje é: </div>
+            <%
+                Date data = new Date();
+                SimpleDateFormat dataFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+                String dataAtual = dataFormat.format(data);
+            %>
+            <div>Hoje é: <%=dataAtual%></div>
         </header>
         <aside>
             <menu>
