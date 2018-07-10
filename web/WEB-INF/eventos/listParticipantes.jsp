@@ -19,12 +19,12 @@
                 <td>${participante.email}</td>
                 <td>${participante.senha}</td>
                 <td>
-                    <form method="post" action="#">
+                    <form method="post" action="excluiParticipante.html">
                         <input type="hidden" name="id" value="${participante.codigo}" />
-                        <input type="button" value="Excluir"/>
+                        <input type="submit" value="Excluir"/>
                         <!--<input type="submit" value="X"/>-->
                     </form>
-                    <a href="editaParticipante.html?id=${participante.codigo}"><input type="button" value="Editar"/></a>
+                    <a href="editaParticipante.html?id=${participante.codigo}"><input type="submit" value="Editar"/></a>
                 </td>
         </tr>
         </c:forEach>

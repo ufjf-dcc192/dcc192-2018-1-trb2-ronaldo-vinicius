@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "PrincipalServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", 
                                                     "/inscricao.html", "/inscritos.html", "/amigo.html",
-                                                    "/participantes.html", "/novoParticipante.html", "/editaParticipante.html"})
+                                                    "/participantes.html", "/novoParticipante.html", "/editaParticipante.html", "/excluiParticipante.html"})
 public class PrincipalServlet extends HttpServlet {
 
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -51,9 +51,9 @@ public class PrincipalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
-        rotas.put("/participantes.html", "codigos.ListarParticipantesCommand");
         rotas.put("/novoParticipante.html", "codigos.NovoParticipanteCommandPost");
         rotas.put("/editaParticipante.html", "codigos.EditaParticipanteCommandPost");
+        rotas.put("/excluiParticipante.html", "codigos.DeletaParticipanteCommandPost");
         
         rotas.put("/eventos.html", "codigos.ListarEventosCommand");
         rotas.put("/novoevento.html", "codigos.NovoEventoCommandPost");
