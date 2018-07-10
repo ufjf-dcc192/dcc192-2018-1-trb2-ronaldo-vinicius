@@ -23,7 +23,8 @@
                         <input type="hidden" name="id" value="${participante.codigo}" />
                         <input type="button" value="Excluir"/>
                         <!--<input type="submit" value="X"/>-->
-                    </form>                    
+                    </form>
+                    <a href="editaParticipante.html?id=${participante.codigo}"><input type="button" value="Editar"/></a>
                 </td>
         </tr>
         </c:forEach>

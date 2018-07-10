@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "PrincipalServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", 
                                                     "/inscricao.html", "/inscritos.html", "/amigo.html",
-                                                    "/participantes.html", "/novoParticipante.html"})
+                                                    "/participantes.html", "/novoParticipante.html", "/editaParticipante.html"})
 public class PrincipalServlet extends HttpServlet {
 
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -34,7 +34,8 @@ public class PrincipalServlet extends HttpServlet {
         rotas.put("/inscritos.html", "codigos.ListarInscritosEventoCommand");
         
         rotas.put("/participantes.html", "codigos.ListarParticipantesCommand");
-        rotas.put("/novoParticipante.html", "codigos.NovoparticipanteCommand");
+        rotas.put("/novoParticipante.html", "codigos.NovoParticipanteCommand");
+        rotas.put("/editaParticipante.html", "codigos.EditaParticipanteCommand");
         
         String clazzName = rotas.get(request.getServletPath());
         try {
@@ -52,6 +53,7 @@ public class PrincipalServlet extends HttpServlet {
         Map<String, String> rotas = new HashMap<>();
         rotas.put("/participantes.html", "codigos.ListarParticipantesCommand");
         rotas.put("/novoParticipante.html", "codigos.NovoParticipanteCommandPost");
+        rotas.put("/editaParticipante.html", "codigos.EditaParticipanteCommandPost");
         
         rotas.put("/eventos.html", "codigos.ListarEventosCommand");
         rotas.put("/novoevento.html", "codigos.NovoEventoCommandPost");
