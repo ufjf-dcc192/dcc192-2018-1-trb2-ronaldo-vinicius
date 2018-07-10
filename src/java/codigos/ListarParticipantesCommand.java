@@ -14,7 +14,7 @@ public class ListarParticipantesCommand implements Comando{
         RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/listParticipantes.jsp");
         List<Participante> participantes = EventosDAO.getInstance().listParticipantes();
         request.setAttribute("titulos", "Lista de Participantes");
-        request.setAttribute("eventos", participantes);
+        request.setAttribute("participantes", participantes);
         dispacher.forward(request, response);
     }
     

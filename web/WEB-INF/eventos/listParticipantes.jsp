@@ -1,7 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../jspf/cabecalho.jspf" %>
 <p>Lista de Participantes:</p>
-<!--https://docs.google.com/document/d/10MoReDSczzfsYwgdFi-xP9vyRuH6roXi-mKBznrMK4k/edit#-->
 <table>
     <thead>
         <tr>
@@ -9,18 +8,19 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Senha</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="participantes" items="${participante}">
+        <c:forEach var="participante" items="${participantes}">
             <tr>
-                <td>${participantes.getCodigo}</td>
-                <td>${participantes.getNome}</td>
-                <td>${participantes.getEmail}</td>
-                <td>${participantes.getSenha}</td>
+                <td>${participante.codigo }</td>
+                <td>${participante.nome}</td>
+                <td>${participante.email}</td>
+                <td>${participante.senha}</td>
                 <td>
                     <form method="post" action="#">
-                        <input type="hidden" name="id" value="${evento.codigo}" />
+                        <input type="hidden" name="id" value="${participante.codigo}" />
                         <input type="button" value="Excluir"/>
                         <!--<input type="submit" value="X"/>-->
                     </form>                    
