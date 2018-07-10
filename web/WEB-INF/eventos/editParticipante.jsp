@@ -4,20 +4,17 @@
 <%@include file="../jspf/cabecalho.jspf" %>
 <p>Participante</p>
 <form method="POST">
-    <%
-        Participante p = EventosDAO.getInstance().buscaParticipantes(request.getParameter("id"));        
-    %> 
         <label>
             Nome: 
-            <input type="text" name="nome" value="<%=p.getNome()%>" />
+            <input type="text" name="nome" value="${participante.nome}" />
         </label>
         <label>
             Email 
-            <input type="text" name="email" value="<%=p.getEmail()%>" />
+            <input type="text" name="email" value="${participante.email}" />
         </label>
         <label>
             Senha 
-            <input type="password" name="senha" value="<%=p.getSenha()%>" />
+            <input type="password" name="senha" value="${participante.senha}" />
         </label>
     <input type="submit" value="Gravar" />
 </form>

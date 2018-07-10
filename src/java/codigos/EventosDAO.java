@@ -102,23 +102,6 @@ public class EventosDAO {
         }
         return participantes;
     }
-    public Participante buscaParticipantes(String codigo) {
-        Participante participante = new Participante();
-        try {
-            Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT * from PARTICPANTE where ID = " + codigo);
-            
-            participante.setCodigo(resultado.getString("id"));
-            participante.setNome(resultado.getString("nome"));
-            participante.setEmail(resultado.getString("email"));
-            participante.setSenha(resultado.getString("senha"));
-            resultado.close();
-            comando.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return participante;
-    }
     
     void createParticipante(String nome, String email, String senha) {
         try {
@@ -148,5 +131,24 @@ public class EventosDAO {
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Participante buscaParticipantes(Long id) {
+        Participante participante = new Participante();
+        try {
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery(String.format("Select * FROM PARTICPANTE where id=%d", id));
+            while (resultado.next()) {
+                participante.setCodigo(resultado.getString("id"));
+                participante.setNome(resultado.getString("nome"));
+                participante.setEmail(resultado.getString("email"));
+                participante.setSenha(resultado.getString("senha"));
+            }
+            resultado.close();
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return participante;
     }
 }
