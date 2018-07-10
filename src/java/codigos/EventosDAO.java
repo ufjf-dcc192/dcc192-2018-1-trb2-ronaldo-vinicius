@@ -5,10 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,7 +86,7 @@ public class EventosDAO {
         List<Participante> participantes = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT id, nome, email, senha from PARTICIPANTE");
+            ResultSet resultado = comando.executeQuery("SELECT id, nome, email, senha from PARTICPANTE");
             while (resultado.next()) {
                 Participante participante = new Participante();
                 participante.setCodigo(resultado.getString("id"));
@@ -105,10 +103,10 @@ public class EventosDAO {
         return participantes;
     }
     
-    void createParticipante(String nome, String email, String senha, String idEvento) {
+    void createParticipante(String nome, String email, String senha) {
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO PARTICIPANTE(nome, email, senha, idEvento) VALUES('%s','%s','%s','%s')", nome, email, senha, idEvento));
+            comando.executeUpdate(String.format("INSERT INTO PARTICPANTE(nome, email, senha) VALUES('%s','%s','%s')", nome, email, senha));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -118,7 +116,7 @@ public class EventosDAO {
     void deleteParticipante(Long id){
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("DELETE FROM PARTICIPANTE where id=%d", id));
+            comando.executeUpdate(String.format("DELETE FROM PARTICPANTE where id=%d", id));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
