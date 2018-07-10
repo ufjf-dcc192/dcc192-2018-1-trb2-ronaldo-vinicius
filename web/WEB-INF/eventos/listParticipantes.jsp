@@ -6,28 +6,25 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Títulos</th>
-            <th>Preço Mínimo</th>
-            <th>Data de Criação</th>
-            <th>Data do Sorteio</th>
-            <th>Ação</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="evento" items="${eventos}">
+        <c:forEach var="evento" items="${participantes}">
             <tr>
-                <td>${evento.codigo}</td>
-                <td>${evento.titulos}</td>
-                <td>${evento.minimo}</td>
-                <td>${evento.data}</td>
-                <td>${evento.sorteio}</td>
+                <td>${participantes.getCodigo}</td>
+                <td>${participantes.getNome}</td>
+                <td>${participantes.getEmail}</td>
+                <td>${participantes.getSenha}</td>
                 <td>
                     <form method="post" action="#">
                         <input type="hidden" name="id" value="${evento.codigo}" />
                         <input type="button" value="Excluir"/>
                         <!--<input type="submit" value="X"/>-->
                     </form>
-                    <a href="novoevento.html">Novo Evento</a> <a href="inscricao.html">Inscrever Participante</a>
+                    <a href="novoevento.html">Novo Participante</a>
                 </td>
         </tr>
         </c:forEach>
