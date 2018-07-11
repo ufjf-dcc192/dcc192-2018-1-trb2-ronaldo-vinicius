@@ -1,41 +1,47 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%@include file="jspf/cabecalho.jspf" %>
-<p>Eventos de Amigo Oculto:</p>
+<link rel="stylesheet" href="css/colour.css">
+<link rel="stylesheet" href="css/template.css">
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Títulos</th>
-            <th>Preço Mínimo</th>
-            <th>Data de Criação</th>
-            <th>Data do Sorteio</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="evento" items="${eventos}">
+<p>Eventos de Amigo Oculto:</p>
+<div class="grid_16">
+    <table>
+        <thead>
             <tr>
-                <td>${evento.codigo}</td>
-                <td>${evento.titulos}</td>
-                <td>${evento.minimo}</td>
-                <td>${evento.data}</td>
-                <td>${evento.sorteio}</td>
-                <td>
-                    <form method="post" action="#">
-                        <input type="hidden" name="id" value="${evento.codigo}" />
-                        <input type="button" value="Excluir"/>
-                        <!--<input type="submit" value="X"/>-->
-                    </form>
-                    <a href="inscricao.html"><input type="button" value="Participantes"/></a>
-                </td>
+                <th>ID</th>
+                <th>TÃ­tulos</th>
+                <th>PreÃ§o MÃ­nimo</th>
+                <th>Data de CriaÃ§Ã£o</th>
+                <th>Data do Sorteio</th>
+                <th>AÃ§Ã£o</th>
             </tr>
-            
-        </c:forEach>
-        <tr>
-                <a href="novoevento.html">Novo Evento</a>
-        </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <c:forEach var="evento" items="${eventos}">
+                <tr>
+                    <td>${evento.codigo}</td>
+                    <td>${evento.titulos}</td>
+                    <td>${evento.minimo}</td>
+                    <td>${evento.data}</td>
+                    <td>${evento.sorteio}</td>
+                    <td>
+                        <form method="post" action="#">
+                            <input type="hidden" name="id" value="${evento.codigo}" />
+                            <input type="button" value="Excluir"/>
+                            <!--<input type="submit" value="X"/>-->
+                        </form>
+                        <a href="inscricao.html"><input type="button" value="Participantes"/></a>
+                    </td>
+                </tr>
+
+            </c:forEach>
+            <tr>
+                    <a href="novoevento.html">Novo Evento</a>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <%@include file="jspf/rodape.jspf" %>
