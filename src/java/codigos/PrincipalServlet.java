@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "PrincipalServlet", urlPatterns = {"/index.html", "/eventos.html", "/novoevento.html", 
                                                     "/inscricao.html", "/inscritos.html", "/amigo.html",
-                                                    "/participantes.html", "/novoParticipante.html", "/editaParticipante.html", "/excluiParticipante.html"})
+                                                    "/participantes.html", "/novoParticipante.html", "/editaParticipante.html", "/excluiParticipante.html",
+                                                    "/listaInscritos.html"})
 public class PrincipalServlet extends HttpServlet {
 
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -35,6 +36,8 @@ public class PrincipalServlet extends HttpServlet {
         rotas.put("/participantes.html", "codigos.ListarParticipantesCommand");
         rotas.put("/novoParticipante.html", "codigos.NovoParticipanteCommand");
         rotas.put("/editaParticipante.html", "codigos.EditaParticipanteCommand");
+        
+        rotas.put("/listaInscritos.html", "codigos.ListarInscritosEventoCommand");
         
         String clazzName = rotas.get(request.getServletPath());
         try {

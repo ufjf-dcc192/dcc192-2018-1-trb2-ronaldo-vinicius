@@ -1,4 +1,8 @@
 package codigos;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Evento {
 
     public String codigo;
@@ -6,7 +10,9 @@ public class Evento {
     public Float minimo;
     public String data;
     public String sorteio;
+    public List<Participante> inscritos = new ArrayList<>(); 
 
+            
     public Evento(String codigo, String titulos, Float minimo, String data, String sorteio) {
         this.codigo = codigo;
         this.titulos = titulos;
@@ -60,7 +66,15 @@ public class Evento {
     public void setSorteio(String sorteio) {
         this.sorteio = sorteio;
     }
+    
+    public List<Participante> getInscritos() {
+        return inscritos;
+    }
 
+    public void setInscritos(List<Participante> inscritos) {
+        this.inscritos = inscritos;
+    }
+    
     @Override
     public String toString() {
         return codigo + " - " + titulos + " - " + minimo + " - " + data + " - " + sorteio;

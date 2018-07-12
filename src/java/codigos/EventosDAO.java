@@ -90,7 +90,7 @@ public class EventosDAO {
         List<Participante> participantes = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT id, nome, email, senha from PARTICPANTE");
+            ResultSet resultado = comando.executeQuery("SELECT id, nome, email, senha from PARTICIPANTE");
             while (resultado.next()) {
                 Participante participante = new Participante();
                 participante.setCodigo(resultado.getString("id"));
@@ -110,7 +110,7 @@ public class EventosDAO {
     void createParticipante(String nome, String email, String senha) {
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO PARTICPANTE(nome, email, senha) VALUES('%s','%s','%s')", nome, email, senha));
+            comando.executeUpdate(String.format("INSERT INTO PARTICIPANTE(nome, email, senha) VALUES('%s','%s','%s')", nome, email, senha));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -120,7 +120,7 @@ public class EventosDAO {
     void updateParticipante(String codigo, String nome, String email, String senha) {
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("Update PARTICPANTE set nome = '%s', email = '%s', senha = '%s' where id = " + codigo, nome, email, senha));
+            comando.executeUpdate(String.format("Update PARTICIPANTE set nome = '%s', email = '%s', senha = '%s' where id = " + codigo, nome, email, senha));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,7 +130,7 @@ public class EventosDAO {
     void deleteParticipante(Long id){
         try {
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("DELETE FROM PARTICPANTE where id=%d", id));
+            comando.executeUpdate(String.format("DELETE FROM PARTICIPANTE where id=%d", id));
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -141,7 +141,7 @@ public class EventosDAO {
         Participante participante = new Participante();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery(String.format("Select * FROM PARTICPANTE where id=%d", id));
+            ResultSet resultado = comando.executeQuery(String.format("Select * FROM PARTICIPANTE where id=%d", id));
             while (resultado.next()) {
                 participante.setCodigo(resultado.getString("id"));
                 participante.setNome(resultado.getString("nome"));
@@ -154,5 +154,41 @@ public class EventosDAO {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return participante;
+    }
+    
+    public Evento buscaEvento(Long id) {
+        Evento evento = new Evento();
+        try {
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery(String.format("Select * FROM EVENTO where id=%d", id));
+            while (resultado.next()) {
+                evento.setCodigo(resultado.getString("id"));
+                evento.setTitulos(resultado.getString("titulo"));
+                evento.setData(resultado.getString("data"));
+                evento.setSorteio(resultado.getString("datasorteio"));
+                evento.setMinimo(Float.parseFloat(resultado.getString("minimo")));
+            }
+            resultado.close();
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return evento;
+    }
+    
+    public Evento listaInscritosEvento(Long idEvento) {
+        Evento evento = buscaEvento(idEvento);
+        try {
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery(String.format("SELECT * from PARTICIPANTE_EVENTO where id_evento = %d", idEvento));
+            while (resultado.next()) {
+                evento.getInscritos().add(buscaParticipantes(Long.parseLong(resultado.getString("ID_PARTICIPANTE"))));
+            }
+            resultado.close();
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return evento;
     }
 }

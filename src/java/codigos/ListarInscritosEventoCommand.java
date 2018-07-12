@@ -11,10 +11,11 @@ public class ListarInscritosEventoCommand implements Comando{
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/list.jsp");
-//        List<Tarefa> tarefas = TarefaDAO.getInstance().listAll();
-        request.setAttribute("titulo", "Lista de Eventos");
-//        request.setAttribute("tarefas", tarefas);
+        Long id = Long.parseLong(request.getParameter("idevento"));  
+        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/listInscritos.jsp");
+        Evento evento = EventosDAO.getInstance().listaInscritosEvento(id);
+        request.setAttribute("titulo", "Lista de Inscritos em Evento");
+        request.setAttribute("eventos", evento);
         dispacher.forward(request, response);
     }
     

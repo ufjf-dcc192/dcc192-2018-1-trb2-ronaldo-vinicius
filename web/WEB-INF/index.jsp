@@ -31,7 +31,7 @@
                             <input type="hidden" name="id" value="${evento.codigo}" />
                             <input type="submit" value="Excluir"/>
                         </form>
-                        <a href="inscricao.html"><input type="submit" value="Participantes"/></a>
+                        <a href="listaInscritos.html?idevento=${evento.codigo}"><input type="submit" value="Participantes"/></a>
                     </td>
                 </tr>
 
