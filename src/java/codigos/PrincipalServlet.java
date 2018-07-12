@@ -28,7 +28,6 @@ public class PrincipalServlet extends HttpServlet {
         Map<String, String> rotas = new HashMap<>();
         
         rotas.put("/index.html", "codigos.IndexCommand");
-        rotas.put("/eventos.html", "codigos.ListarEventosCommand");
         rotas.put("/novoevento.html", "codigos.NovoEventoCommand");
         rotas.put("/inscricao.html", "codigos.InscricaoEventoCommand");
         rotas.put("/inscritos.html", "codigos.ListarInscritosEventoCommand");
@@ -55,7 +54,6 @@ public class PrincipalServlet extends HttpServlet {
         rotas.put("/editaParticipante.html", "codigos.EditaParticipanteCommandPost");
         rotas.put("/excluiParticipante.html", "codigos.DeletaParticipanteCommandPost");
         
-        rotas.put("/eventos.html", "codigos.ListarEventosCommand");
         rotas.put("/novoevento.html", "codigos.NovoEventoCommandPost");
         
         rotas.put("/inscricao.html", "codigos.InscricaoEventoCommand");

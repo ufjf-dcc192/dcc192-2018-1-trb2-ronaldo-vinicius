@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,14 +39,14 @@ public class EventosDAO {
         List<Evento> eventos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT id, titulo, minimo, data, datasorteio from EVENTO");
+            ResultSet resultado = comando.executeQuery("SELECT id, titulo, minimo, sorteio, data from EVENTO");
             while (resultado.next()) {
                 Evento evento = new Evento();
                 evento.setCodigo(resultado.getString("id"));
                 evento.setTitulos(resultado.getString("titulo"));
                 evento.setMinimo(Float.parseFloat(resultado.getString("minimo")));
                 evento.setData(resultado.getString("data"));
-                evento.setSorteio(resultado.getString("datasorteio"));
+                evento.setSorteio(resultado.getString("sorteio"));
                 eventos.add(evento);
 
             }
@@ -59,12 +60,15 @@ public class EventosDAO {
     
     void createEvento(String titulo, Float minimo, String sorteio) throws ParseException {
         try {  
-            Date data = new Date();
+            Calendar calendar = Calendar.getInstance();
+            java.sql.Date sqlDate = new java.sql.Date(calendar.getTime().getTime());
             SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy"); 
-            String dataAtual = out.format(data);  
+            String data = out.format(sqlDate);
+            
+            sorteio = out.format(Date.valueOf(sorteio));
             
             Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO EVENTO(titulo, minimo, data, datasorteio) VALUES('" + titulo + "'," + minimo + ", '" + dataAtual + "','" + sorteio + "')"));
+            comando.executeUpdate("INSERT INTO EVENTO(titulo, minimo, data, sorteio) VALUES('" + titulo + "'," + minimo + ", '" + data + "','" + sorteio + "')");
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);

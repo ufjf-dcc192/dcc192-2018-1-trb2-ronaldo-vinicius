@@ -8,11 +8,11 @@
     </label>
     <label>
         Valor Minimo: 
-        <input type="text" name="vlrMinimo" value="" />
+        <input type="number" name="vlrMinimo" value="" />
     </label>
     <label>
         Data Sorteio: 
-        <input type="text" name="dataSorteio" value="" />
+        <input type="date" name="data" value="" />
     </label>
     <input type="submit" value="Gravar" me/>
 </form>

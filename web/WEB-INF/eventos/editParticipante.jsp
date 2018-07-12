@@ -10,7 +10,7 @@
         </label>
         <label>
             Email 
-            <input type="text" name="email" value="${participante.email}" />
+            <input type="email" name="email" value="${participante.email}" />
         </label>
         <label>
             Senha 

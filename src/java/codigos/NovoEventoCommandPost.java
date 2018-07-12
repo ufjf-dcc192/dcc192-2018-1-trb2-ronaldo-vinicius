@@ -13,13 +13,13 @@ public class NovoEventoCommandPost implements Comando{
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String titulo = request.getParameter("titulo");
         String vlrMinimo = request.getParameter("vlrMinimo");
-        String dataSorteio = request.getParameter("dataSorteio");
+        String data = request.getParameter("data");
         try {
-            EventosDAO.getInstance().createEvento(titulo, Float.parseFloat(vlrMinimo), dataSorteio);
+            EventosDAO.getInstance().createEvento(titulo, Float.parseFloat(vlrMinimo), data);
         } catch (ParseException ex) {
             Logger.getLogger(NovoEventoCommandPost.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("eventos.html");
+        response.sendRedirect("index.html");
     }
     
 }

@@ -29,16 +29,16 @@
                     <td>
                         <form method="post" action="#">
                             <input type="hidden" name="id" value="${evento.codigo}" />
-                            <input type="button" value="Excluir"/>
+                            <input type="submit" value="Excluir"/>
                             <!--<input type="submit" value="X"/>-->
                         </form>
-                        <a href="inscricao.html"><input type="button" value="Participantes"/></a>
+                        <a href="inscricao.html"><input type="submit" value="Participantes"/></a>
                     </td>
                 </tr>
 
             </c:forEach>
             <tr>
-                    <a href="novoevento.html">Novo Evento</a>
+                    <a href="novoevento.html"><input type="submit" value="Novo Evento"/></a>
             </tr>
         </tbody>
     </table>
