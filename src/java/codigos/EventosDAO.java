@@ -39,14 +39,14 @@ public class EventosDAO {
         List<Evento> eventos = new ArrayList<>();
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT id, titulo, minimo, sorteio, data from EVENTO");
+            ResultSet resultado = comando.executeQuery("SELECT id, titulo, minimo, datasorteio, data from EVENTO");
             while (resultado.next()) {
                 Evento evento = new Evento();
                 evento.setCodigo(resultado.getString("id"));
                 evento.setTitulos(resultado.getString("titulo"));
                 evento.setMinimo(Float.parseFloat(resultado.getString("minimo")));
                 evento.setData(resultado.getString("data"));
-                evento.setSorteio(resultado.getString("sorteio"));
+                evento.setSorteio(resultado.getString("datasorteio"));
                 eventos.add(evento);
 
             }
@@ -68,7 +68,7 @@ public class EventosDAO {
             sorteio = out.format(Date.valueOf(sorteio));
             
             Statement comando = conexao.createStatement();
-            comando.executeUpdate("INSERT INTO EVENTO(titulo, minimo, data, sorteio) VALUES('" + titulo + "'," + minimo + ", '" + data + "','" + sorteio + "')");
+            comando.executeUpdate("INSERT INTO EVENTO(titulo, minimo, data, datasorteio) VALUES('" + titulo + "'," + minimo + ", '" + data + "','" + sorteio + "')");
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
