@@ -50,6 +50,7 @@ public class PrincipalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Map<String, String> rotas = new HashMap<>();
+        rotas.put("/index.html", "codigos.DeletaEventoCommandPost");
         rotas.put("/novoParticipante.html", "codigos.NovoParticipanteCommandPost");
         rotas.put("/editaParticipante.html", "codigos.EditaParticipanteCommandPost");
         rotas.put("/excluiParticipante.html", "codigos.DeletaParticipanteCommandPost");

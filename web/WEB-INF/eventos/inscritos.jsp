@@ -19,9 +19,9 @@
                 <td>${inscrito.email}</td>
                 <td>"?"</td>
                 <td>
-                    <form method="post" action="inscrito-exclui.html">
+                    <form method="post" action="inscrito-exclui.html" onsubmit="confirm('Clique em OK para DESINSCREVER o participante ${inscrito.nome}.')">
                         <input type="hidden" name="id" value="${inscrito.id}" />
-                        <input type="submit" value="X"/>
+                        <input type="submit" value="Desinscrever"/>
                     </form>
                 </td>
             </tr>
