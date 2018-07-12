@@ -3,8 +3,8 @@ id integer primary key GENERATED ALWAYS AS IDENTITY
         (START WITH 1, INCREMENT BY 1),
 titulo varchar(50),
 minimo decimal(10,2),
-data timestamp,
-datasorteio timestamp
+data varchar(11),
+datasorteio varchar(11)
 );
 
 Create table PARTICIPANTE(

@@ -27,7 +27,7 @@
                     <td>${evento.data}</td>
                     <td>${evento.sorteio}</td>
                     <td>
-                        <form method="post" onsubmit="confirm('Clique em OK para EXCLUIR o evento ${evento.titulos}.');">
+                        <form method="post" onsubmit="return confirm('Clique em OK para EXCLUIR o evento ${evento.titulos}.');">
                             <input type="hidden" name="id" value="${evento.codigo}" />
                             <input type="submit" value="Excluir"/>
                         </form>
