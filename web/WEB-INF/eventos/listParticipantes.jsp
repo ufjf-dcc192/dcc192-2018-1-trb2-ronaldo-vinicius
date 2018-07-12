@@ -25,7 +25,7 @@
                     <td>${participante.email}</td>
                     <td>${participante.senha}</td>
                     <td>
-                        <form method="post" action="excluiParticipante.html" onsubmit="confirm('Clique em OK para EXCLUIR o participante ${participante.nome}.')">
+                        <form method="post" action="excluiParticipante.html" onsubmit="return confirm('Clique em OK para EXCLUIR o participante ${participante.nome}.')">
                             <input type="hidden" name="id" value="${participante.codigo}" />
                             <input type="submit" value="Excluir"/>
                         </form>
