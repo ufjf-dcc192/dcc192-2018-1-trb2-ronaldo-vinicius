@@ -20,7 +20,7 @@
         <tbody>
             <c:forEach var="participante" items="${participantes}">
                 <tr>
-                    <td>${participante.codigo }</td>
+                    <td>${participante.codigo}</td>
                     <td>${participante.nome}</td>
                     <td>${participante.email}</td>
                     <td>${participante.senha}</td>
