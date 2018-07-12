@@ -180,7 +180,7 @@ public class EventosDAO {
         Evento evento = buscaEvento(idEvento);
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery(String.format("SELECT * from PARTICIPANTE_EVENTO where id_evento = %d", idEvento));
+            ResultSet resultado = comando.executeQuery("SELECT * from PARTICIPANTE_EVENTO where id_evento = '" + idEvento + "'");
             while (resultado.next()) {
                 evento.getInscritos().add(buscaParticipantes(Long.parseLong(resultado.getString("ID_PARTICIPANTE"))));
             }
@@ -190,5 +190,15 @@ public class EventosDAO {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return evento;
+    }
+    
+    void insereNovoInscrito(Long idEvento, Long idParticipante) {
+        try {
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate(String.format("INSERT INTO PARTICIPANTE_EVENTO(ID_EVENTO, ID_PARTICIPANTE) VALUES('%s','%s')", idEvento, idParticipante));
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

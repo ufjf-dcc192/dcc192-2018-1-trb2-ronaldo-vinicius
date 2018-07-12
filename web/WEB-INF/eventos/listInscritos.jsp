@@ -34,7 +34,7 @@
                     </td>
             </tr>
             </c:forEach>
-            <tr> <a href="novoInscrito.html"><input type="submit" value="Inscrever Participante"/></a></tr>
+            <tr> <a href="novoInscrito.html?idEvento=${eventos.codigo}"><input type="submit" value="Inscrever Participante"/></a></tr>
         </tbody>
     </table>
 </div>

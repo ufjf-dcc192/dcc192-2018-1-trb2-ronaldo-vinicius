@@ -23,7 +23,11 @@
                     <td>${participante.nome}</td>
                     <td>${participante.email}</td>
                     <td>
-                        <a href="novoInscrito.html?id=${participante.codigo}"><input type="submit" value="Selecionar"/></a>
+                        <form method="post" action="selecionarInscrito.html">
+                            <input  type="hidden" name="idEvento" value="<%=request.getParameter("idEvento")%>">
+                            <input  type="hidden" name="idParticipante" value="${participante.codigo}">
+                            <input type="submit" value="Selecionar"/>
+                        </form>                        
                     </td>
             </tr>
             </c:forEach>
