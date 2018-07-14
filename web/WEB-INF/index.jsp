@@ -33,9 +33,8 @@
                 </tr>
 
             </c:forEach>
-            <tr>
-                    <a href="novoevento.html"><input type="submit" value="Novo Evento"/></a>
-            </tr>
+            <tr><a href="novoevento.html"><input type="submit" value="Novo Evento"/></a></tr>
+            <br><br>
         </tbody>
     </table>
 

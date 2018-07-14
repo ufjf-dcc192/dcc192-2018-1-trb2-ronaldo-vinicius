@@ -32,8 +32,11 @@
                     </td>
             </tr>
             </c:forEach>
+        
             <tr> <a href="novoInscrito.html?idEvento=${eventos.codigo}"><input type="submit" value="Inscrever Participante"/></a></tr>
+            <br><br>
         </tbody>
     </table>
-
+        <br>
+    <a href="sortearEvento.html"><input type="submit" value="Sortear"/></a>
 <%@include file="../jspf/rodape.jspf" %>
