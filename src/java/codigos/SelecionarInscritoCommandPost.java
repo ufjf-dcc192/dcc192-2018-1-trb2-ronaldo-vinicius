@@ -20,6 +20,7 @@ public class SelecionarInscritoCommandPost implements Comando{
         Evento evento = EventosDAO.getInstance().listaInscritosEvento(idEvento);
         request.setAttribute("titulo", "Lista de Inscritos em Evento");
         request.setAttribute("eventos", evento);
+        request.setAttribute("idEvento", idEvento);
         dispacher.forward(request, response);
     }
     
