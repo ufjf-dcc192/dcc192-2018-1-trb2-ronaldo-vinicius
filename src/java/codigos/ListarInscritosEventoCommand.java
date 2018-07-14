@@ -16,6 +16,7 @@ public class ListarInscritosEventoCommand implements Comando{
         Evento evento = EventosDAO.getInstance().listaInscritosEvento(id);
         request.setAttribute("titulo", "Lista de Inscritos em Evento");
         request.setAttribute("eventos", evento);
+        request.setAttribute("idEvento", id);
         dispacher.forward(request, response);
     }
     

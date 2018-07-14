@@ -201,4 +201,15 @@ public class EventosDAO {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    void deleteInscrito(Long idEvento, Long idInscrito){
+        try {
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate("DELETE FROM PARTICIPANTE_EVENTO where id_participante='" + idInscrito + "' and "
+                    + "id_evento='" + idEvento + "'");
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

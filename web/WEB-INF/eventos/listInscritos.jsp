@@ -27,7 +27,8 @@
                     <td>${evento.email}</td>
                     <td>
                         <form method="post" action="excluiInscrito.html" onsubmit="return confirm('Clique em OK para EXCLUIR o inscrito ${evento.codigo}.')">
-                            <input type="hidden" name="id" value="${evento.codigo}" />
+                            <input type="hidden" name="idInscrito" value="${evento.codigo}" />
+                            <input type="hidden" name="idEvento" value="<%=request.getAttribute("idEvento") %>" />
                             <input type="submit" value="Excluir"/>
                         </form>
                         <a href="amigo.html"><input type="submit" value="Ver Amigo"/></a>
