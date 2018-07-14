@@ -7,9 +7,8 @@
               content="text/html; charset=UTF-8" />
         <title>Amigo Oculto</title>
         <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/menu.css" />
-        <link rel="stylesheet" href="css/colour.css">
-        <link rel="stylesheet" href="css/template.css">      
+        <link rel="stylesheet" href="css/menu.css" />    
+        <link rel="stylesheet" href="css/tabelas.css">      
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

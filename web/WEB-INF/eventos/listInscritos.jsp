@@ -6,11 +6,8 @@
 <link rel="stylesheet" href="../css/colour.css">
 <link rel="stylesheet" href="../css/template.css">
 
-
-
 <p>Inscritos em Evento</p>
-<div class="grid_16">
-    <table>
+    <table id="customers">
         <thead>
             <tr>
                 <th>ID</th>
@@ -38,6 +35,5 @@
             <tr> <a href="novoInscrito.html?idEvento=${eventos.codigo}"><input type="submit" value="Inscrever Participante"/></a></tr>
         </tbody>
     </table>
-</div>
 
 <%@include file="../jspf/rodape.jspf" %>

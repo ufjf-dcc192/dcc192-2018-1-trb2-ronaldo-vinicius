@@ -1,6 +1,7 @@
 header{
     background-color: lightgrey;
     padding: 0.2px 10px;
+    text-align: center;
 }
 
 footer{
@@ -42,7 +43,6 @@ li a {
     color: white;
     text-align: center;
     padding: 10px 16px;
-    text-decoration: none;
 }
 
 li a:hover {
@@ -66,4 +66,20 @@ h1.index{
 a:hover.index {
     color: #eee;
     background-color: black;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+input, textarea, select{
+	border:1px solid;
+	font-family:inherit;
+	font-size:inherit;
+	padding:4px;
+}
+
+input[type="submit"], input[type="reset"] {
+	cursor:pointer;
+	width:auto !important;
 }

@@ -2,12 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@include file="../jspf/cabecalho.jspf" %>
-<link rel="stylesheet" href="../css/colour.css">
-<link rel="stylesheet" href="../css/template.css">
 
 <p>Participantes</p>
-<div class="grid_16">
-    <table>
+    <table id="customers">
         <thead>
             <tr>
                 <th>ID</th>
@@ -33,6 +30,5 @@
             </c:forEach>
         </tbody>
     </table>
-</div>
 
 <%@include file="../jspf/rodape.jspf" %>

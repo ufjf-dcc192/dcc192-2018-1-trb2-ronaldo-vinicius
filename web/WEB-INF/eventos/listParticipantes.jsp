@@ -2,18 +2,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@include file="../jspf/cabecalho.jspf" %>
-<link rel="stylesheet" href="../css/colour.css">
-<link rel="stylesheet" href="../css/template.css">
 
 <p>Lista de Participantes:</p>
-<div class="grid_16">
-    <table>
+    <table id="customers">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Senha</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -23,7 +19,6 @@
                     <td>${participante.codigo}</td>
                     <td>${participante.nome}</td>
                     <td>${participante.email}</td>
-                    <td>${participante.senha}</td>
                     <td>
                         <form method="post" action="excluiParticipante.html" onsubmit="return confirm('Clique em OK para EXCLUIR o participante ${participante.nome}.')">
                             <input type="hidden" name="id" value="${participante.codigo}" />
@@ -36,6 +31,5 @@
             <tr> <a href="novoParticipante.html"><input type="submit" value="Novo Participante"/></a></tr>
         </tbody>
     </table>
-</div>
 
 <%@include file="../jspf/rodape.jspf" %>
