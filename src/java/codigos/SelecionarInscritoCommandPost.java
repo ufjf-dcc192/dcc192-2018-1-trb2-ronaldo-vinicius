@@ -21,7 +21,6 @@ public class SelecionarInscritoCommandPost implements Comando{
         request.setAttribute("titulo", "Lista de Inscritos em Evento");
         request.setAttribute("eventos", evento);
         request.setAttribute("idEvento", idEvento);
-        //dispacher.forward(request, response);
         response.sendRedirect("listaInscritos.html?idevento=" + idEvento);
     }
     

@@ -195,9 +195,21 @@ public class EventosDAO {
     
     void insereNovoInscrito(Long idEvento, Long idParticipante) {
         try {
-            Statement comando = conexao.createStatement();
-            comando.executeUpdate(String.format("INSERT INTO PARTICIPANTE_EVENTO(ID_EVENTO, ID_PARTICIPANTE) VALUES('%s','%s')", idEvento, idParticipante));
-            comando.close();
+            int cont = 0;
+            Statement comando2 = conexao.createStatement();
+            ResultSet resultado = comando2.executeQuery("SELECT * from PARTICIPANTE_EVENTO where id_evento = '" + idEvento + "' and id_Participante = '" + idParticipante + "'");
+            while (resultado.next()) {
+                cont++;
+            }   
+            
+            if (cont == 0){
+                Statement comando = conexao.createStatement();
+                comando.executeUpdate(String.format("INSERT INTO PARTICIPANTE_EVENTO(ID_EVENTO, ID_PARTICIPANTE) VALUES('%s','%s')", idEvento, idParticipante));
+                comando.close();    
+            }
+            
+            resultado.close();
+            comando2.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
