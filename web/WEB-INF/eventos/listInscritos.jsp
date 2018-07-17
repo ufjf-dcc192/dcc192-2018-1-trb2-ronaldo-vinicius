@@ -13,28 +13,38 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
+                <th>Sorteio</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="evento" items="${eventos.inscritos}">
+            <c:forEach var="evento" items="${lstInscritos.inscritos}">
                 <tr>
                     <td>${evento.codigo }</td>
                     <td>${evento.nome}</td>
                     <td>${evento.email}</td>
+                    <%  
+                        if ("S".equals(request.getAttribute("sorteado"))) {
+                    %>
                     <td><a href="amigo.html"><input type="submit" value="Ver Amigo"/></a></td>
+                    <%  
+                        }else{
+                    %>
                     <td>?</td>
+                    <%  
+                        }
+                    %>
                     <td>
                         <form method="post" action="excluiInscrito.html" onsubmit="return confirm('Clique em OK para EXCLUIR o inscrito ${evento.codigo}.')">
                             <input type="hidden" name="idInscrito" value="${evento.codigo}" />
                             <input type="hidden" name="idEvento" value="<%=request.getAttribute("idEvento") %>" />
                             <input type="submit" value="Excluir"/>
                         </form>                        
-                    </td>
+                    </td>                    
             </tr>
             </c:forEach>
-        
-            <tr> <a href="novoInscrito.html?idEvento=${eventos.codigo}"><input type="submit" value="Inscrever Participante"/></a></tr>
+            
+            <tr> <a href="novoInscrito.html?idEvento=<%=request.getAttribute("idEvento") %>"><input type="submit" value="Inscrever Participante"/></a></tr>
             <br><br>
         </tbody>
     </table>

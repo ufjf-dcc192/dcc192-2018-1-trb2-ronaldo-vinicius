@@ -68,7 +68,7 @@ public class EventosDAO {
             sorteio = out.format(Date.valueOf(sorteio));
             
             Statement comando = conexao.createStatement();
-            comando.executeUpdate("INSERT INTO EVENTO(titulo, minimo, data, datasorteio, sortedo) VALUES('" + titulo + "'," + minimo + ", '" + data + "','" + sorteio + "', 'N')");
+            comando.executeUpdate("INSERT INTO EVENTO(titulo, minimo, data, datasorteio, sorteado) VALUES('" + titulo + "'," + minimo + ", '" + data + "','" + sorteio + "','" + "N" + "')");
             comando.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
