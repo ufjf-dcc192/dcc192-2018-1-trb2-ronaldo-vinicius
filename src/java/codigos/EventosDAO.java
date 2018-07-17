@@ -225,4 +225,18 @@ public class EventosDAO {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    void atualizaSorteados(Long idEvento) {
+        try {
+            Statement comando = conexao.createStatement();
+            comando.executeUpdate(String.format("Update EVENTO set SORTEADO = '" + "S" + "' WHERE id=%d", idEvento));
+            comando.close();
+            
+            /*Statement comando2 = conexao.createStatement();
+            comando2.executeUpdate(String.format("Update PARTICIPANTE_EVENTO set ID_AMIGO = '" + idAmigo + "' where idevento = '" + idEvento + "' and id_participante = '" + idParticipante + "'"));
+            comando2.close();*/
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

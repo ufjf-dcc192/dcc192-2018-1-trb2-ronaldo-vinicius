@@ -49,5 +49,8 @@
         </tbody>
     </table>
         <br>
-    <a href="sortearEvento.html"><input type="submit" value="Sortear"/></a>
+        <form method="post" action="sortearEvento.html">
+            <input type="hidden" name="idEvento" value="<%=request.getAttribute("idEvento") %>" />
+            <input type="submit" value="Sortear"/>
+        </form>
 <%@include file="../jspf/rodape.jspf" %>
