@@ -4,7 +4,8 @@ id integer primary key GENERATED ALWAYS AS IDENTITY
 titulo varchar(50),
 minimo decimal(10,2),
 data varchar(11),
-datasorteio varchar(11)
+datasorteio varchar(11),
+sorteado varchar(1)
 );
 
 Create table PARTICIPANTE(

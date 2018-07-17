@@ -5,11 +5,12 @@ import java.util.List;
 
 public class Evento {
 
-    public String codigo;
-    public String titulos;
-    public Float minimo;
-    public String data;
-    public String sorteio;
+    private String codigo;
+    private String titulos;
+    private Float minimo;
+    private String data;
+    private String sorteio;
+    private String sorteado;
     public List<Participante> inscritos = new ArrayList<>(); 
 
             
@@ -73,6 +74,14 @@ public class Evento {
 
     public void setInscritos(List<Participante> inscritos) {
         this.inscritos = inscritos;
+    }
+
+    public String getSorteado() {
+        return sorteado;
+    }
+
+    public void setSorteado(String sorteado) {
+        this.sorteado = sorteado;
     }
     
     @Override
