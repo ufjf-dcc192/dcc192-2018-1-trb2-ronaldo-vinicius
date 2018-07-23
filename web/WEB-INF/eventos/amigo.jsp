@@ -3,6 +3,6 @@
 
     <body>
         <div class="label-amigo">
-            Seu amigo é: 
+            Seu amigo é: <%=request.getAttribute("amigo")  %>
         </div>
     </body>

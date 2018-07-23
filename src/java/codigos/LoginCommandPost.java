@@ -11,7 +11,24 @@ public class LoginCommandPost implements Comando{
 
     @Override
     public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/amigo.jsp");
+        RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/amigo.jsp");        
+        Participante participante = new Participante();
+        
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
+        
+        participante = EventosDAO.getInstance().realizaLogin(email, senha);
+       
+        if ((participante.getEmail().equals(email)) && (participante.getSenha().equals(senha))){
+            Participante p = new Participante();
+            p = EventosDAO.getInstance().buscaAmigo(Long.parseLong("2"), Long.parseLong(participante.getCodigo()));
+            
+            dispacher = request.getRequestDispatcher("/WEB-INF/eventos/amigo.jsp");
+            request.setAttribute("amigo", p.getNome());
+        }else{
+            dispacher = request.getRequestDispatcher("/WEB-INF/eventos/login_erro.jsp");
+        }           
+        
         request.setAttribute("titulo", "Amigo");
         dispacher.forward(request, response);
     }

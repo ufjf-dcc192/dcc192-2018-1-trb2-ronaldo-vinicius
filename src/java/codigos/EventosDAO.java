@@ -239,4 +239,37 @@ public class EventosDAO {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public Participante buscaAmigo(Long idEvento, Long idParticipante) {
+        Participante p = new Participante();
+        try {            
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery("SELECT * from PARTICIPANTE_EVENTO where id_evento = '" + idEvento + "' and id_participante = '" + idParticipante + "'");
+            while (resultado.next()) {
+                p = buscaParticipantes(Long.parseLong(resultado.getString("ID_AMIGO")));
+            }
+            resultado.close();
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
+    
+    public Participante realizaLogin(String email, String senha){
+        Participante p = new Participante();
+        try {            
+            Statement comando = conexao.createStatement();
+            ResultSet resultado = comando.executeQuery("SELECT * from PARTICIPANTE where email = '" + email + "' and senha = '" + senha + "'");
+            while (resultado.next()) {
+                p = buscaParticipantes(Long.parseLong(resultado.getString("ID")));
+            }
+            resultado.close();
+            comando.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;    
+    }
+        
 }
