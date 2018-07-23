@@ -1,11 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="../jspf/cabecalho.jspf" %>    
+<BR><BR>
     <body>
-        <h1>Hello World!</h1>
+        <label class="label-amigo">
+            Seu amigo é: 
+        </LABEL>
     </body>
-</html>

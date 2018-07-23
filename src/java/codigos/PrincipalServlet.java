@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
                                                     "/inscricao.html", "/inscritos.html", "/amigo.html",
                                                     "/participantes.html", "/novoParticipante.html", "/editaParticipante.html", "/excluiParticipante.html",
                                                     "/listaInscritos.html", "/novoInscrito.html", "/selecionarInscrito.html", "/excluiInscrito.html",
-                                                    "/sortearEvento.html"})
+                                                    "/sortearEvento.html", "/login.html", "/login_erro.html"})
 public class PrincipalServlet extends HttpServlet {
 
         protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -40,6 +40,9 @@ public class PrincipalServlet extends HttpServlet {
         
         rotas.put("/listaInscritos.html", "codigos.ListarInscritosEventoCommand");
         rotas.put("/novoInscrito.html", "codigos.NovoInscritoCommand");  
+       
+        rotas.put("/login.html", "codigos.LoginCommand");
+        
         
         
         String clazzName = rotas.get(request.getServletPath());
@@ -69,7 +72,9 @@ public class PrincipalServlet extends HttpServlet {
         rotas.put("/selecionarInscrito.html", "codigos.SelecionarInscritoCommandPost");
         rotas.put("/excluiInscrito.html", "codigos.DeletaInscritoCommandPost");    
         
-        rotas.put("/sortearEvento.html", "codigos.SortearEventoCommandPost");
+        rotas.put("/sortearEvento.html", "codigos.SortearEventoCommandPost");   
+        
+        rotas.put("/amigo.html", "codigos.LoginCommandPost");
         
         
         String clazzName = rotas.get(request.getServletPath());
