@@ -84,3 +84,11 @@ input[type="submit"], input[type="reset"] {
 	cursor:pointer;
 	width:auto !important;
 }
+
+.label-amigo{
+  color: #5d665b; 
+  margin: 50px;
+  font-family: Verdana, Geneva, Arial, sans-serif; 
+  font-size: xx-large; 
+  line-height: 180%;
+}
