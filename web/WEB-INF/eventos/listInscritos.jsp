@@ -26,7 +26,7 @@
                     <%  
                         if ("S".equals(request.getAttribute("sorteado"))) {
                     %>
-                    <td><a href="login.html"><input type="submit" value="Ver Amigo"/></a></td>
+                    <td><a href="login.html?id_evento=<%=request.getAttribute("idEvento")%>"><input type="submit" value="Ver Amigo"/></a></td>
                     <%  
                         }else{
                     %>

@@ -269,6 +269,9 @@ public class EventosDAO {
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if (p.codigo == null){
+            p.setCodigo("0");
+        }
         return p;    
     }
         

@@ -13,6 +13,8 @@
     </label>  
     <BR>
     
+    <input type="hidden" name="idEvento" value="<%=request.getParameter("id_evento")%>" />
+    
     <input type="submit" value="Entrar" me/>
 </form>
 <%@include file="../jspf/rodape.jspf" %>

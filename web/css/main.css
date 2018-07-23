@@ -92,3 +92,8 @@ input[type="submit"], input[type="reset"] {
   font-size: xx-large; 
   line-height: 180%;
 }
+
+.login-erro{
+  color: red;
+  font-family: Verdana, Geneva, Arial, sans-serif; 
+}
