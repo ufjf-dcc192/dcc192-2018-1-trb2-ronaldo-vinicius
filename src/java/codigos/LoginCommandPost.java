@@ -26,16 +26,16 @@ public class LoginCommandPost implements Comando{
                 p = EventosDAO.getInstance().buscaAmigo(Long.parseLong("2"), Long.parseLong(participante.getCodigo()));
                 
                 dispacher = request.getRequestDispatcher("/WEB-INF/eventos/amigo.jsp");
-                
+                request.setAttribute("idEvento", idEvento);
                 request.setAttribute("amigo", p.getNome());
             }else{
                 dispacher = request.getRequestDispatcher("/WEB-INF/eventos/login_erro.jsp");
             } 
         }else{
+            request.setAttribute("idEvento", idEvento);
             dispacher = request.getRequestDispatcher("/WEB-INF/eventos/login_Erro.jsp");
-        }    
+        }            
         
-        request.setAttribute("idEvento", idEvento);
         request.setAttribute("titulo", "Amigo");
         dispacher.forward(request, response);
     }

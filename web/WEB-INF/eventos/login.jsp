@@ -4,7 +4,7 @@
 <form method="POST" action="amigo.html">
     <label>
         Email 
-        <input type="text" name="email" value="" />
+        <input type="email" name="email" value="" />
     </label>
     <BR>
     <label>
@@ -17,4 +17,7 @@
     
     <input type="submit" value="Entrar" me/>
 </form>
+    <BR>
+    <a href="listaInscritos.html?idevento=<%=request.getParameter("id_evento")%>"><input type="submit" value="<< Voltar"/></a>
+    
 <%@include file="../jspf/rodape.jspf" %>
