@@ -4,7 +4,7 @@
 <form method="POST" action="amigo.html">
     <label>
         Email 
-        <input type="email" name="email" value="" />
+        <input type="email" name="email" value="<%=request.getParameter("emailInscrito")%>"/>
     </label>
     <BR>
     <label>
