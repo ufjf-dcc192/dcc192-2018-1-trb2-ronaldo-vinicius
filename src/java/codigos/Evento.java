@@ -25,9 +25,6 @@ public class Evento {
     public Evento() {
     }
 
-    public void sorteia() {
-    }
-
     public String getCodigo() {
         return codigo;
     }

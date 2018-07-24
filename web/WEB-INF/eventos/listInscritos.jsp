@@ -13,7 +13,7 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Sorteio</th>
+                <th>Amigo</th>
                 <th>Ações</th>
             </tr>
         </thead>

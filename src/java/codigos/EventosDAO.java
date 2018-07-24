@@ -181,7 +181,7 @@ public class EventosDAO {
         Evento evento = buscaEvento(idEvento);
         try {
             Statement comando = conexao.createStatement();
-            ResultSet resultado = comando.executeQuery("SELECT * from PARTICIPANTE_EVENTO where id_evento = '" + idEvento + "'");
+            ResultSet resultado = comando.executeQuery("SELECT * from PARTICIPANTE_EVENTO where id_evento = '" + idEvento + "' order by id_participante");
             while (resultado.next()) {
                 evento.getInscritos().add(buscaParticipantes(Long.parseLong(resultado.getString("ID_PARTICIPANTE"))));
             }
@@ -226,15 +226,21 @@ public class EventosDAO {
         }
     }
     
-    void atualizaSorteados(Long idEvento) {
+    void atualizaStatusEvento(Long idEvento) {
         try {
             Statement comando = conexao.createStatement();
             comando.executeUpdate(String.format("Update EVENTO set SORTEADO = '" + "S" + "' WHERE id=%d", idEvento));
             comando.close();
-            
-            /*Statement comando2 = conexao.createStatement();
-            comando2.executeUpdate(String.format("Update PARTICIPANTE_EVENTO set ID_AMIGO = '" + idAmigo + "' where idevento = '" + idEvento + "' and id_participante = '" + idParticipante + "'"));
-            comando2.close();*/
+        } catch (SQLException ex) {
+            Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    void atualizaAmigo(Long idEvento, Long idAmigo, Long idParticipante) {
+        try {            
+            Statement comando2 = conexao.createStatement();
+            comando2.executeUpdate(String.format("Update PARTICIPANTE_EVENTO set ID_AMIGO = '" + idAmigo + "' where id_evento = '" + idEvento + "' and id_participante = '" + idParticipante + "'"));
+            comando2.close();
         } catch (SQLException ex) {
             Logger.getLogger(EventosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
