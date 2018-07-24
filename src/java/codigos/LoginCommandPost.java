@@ -23,7 +23,7 @@ public class LoginCommandPost implements Comando{
         if (!"0".equals(participante.getCodigo())) {
             if ((participante.getEmail().equals(email)) && (participante.getSenha().equals(senha))){
                 Participante p = new Participante();
-                p = EventosDAO.getInstance().buscaAmigo(Long.parseLong("2"), Long.parseLong(participante.getCodigo()));
+                p = EventosDAO.getInstance().buscaAmigo(Long.parseLong(idEvento), Long.parseLong(participante.getCodigo()));
                 
                 dispacher = request.getRequestDispatcher("/WEB-INF/eventos/amigo.jsp");
                 request.setAttribute("idEvento", idEvento);
