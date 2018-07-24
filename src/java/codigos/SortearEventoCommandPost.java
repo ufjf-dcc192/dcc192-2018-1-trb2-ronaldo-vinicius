@@ -28,12 +28,19 @@ public class SortearEventoCommandPost implements Comando{
         //Embaralhamos os números:
         Collections.shuffle(numeros);
         
-        for(int j = 0; j < numeros.size(); j++){
+        //for(int j = 0; j < numeros.size(); j++){
+        while(numeros.size() > 0){
             idParticipante = Long.parseLong(evento.getInscritos().get(0).getCodigo());
-            idAmigo = numeros.get(j) + "";
-            evento.getInscritos().get(0).getCodigo();
-            EventosDAO.getInstance().atualizaAmigo(idEvento, Long.parseLong(idAmigo), idParticipante);
-            evento.getInscritos().remove(0);
+            idAmigo = numeros.get(0) + "";
+            //evento.getInscritos().get(0).getCodigo();
+            
+            if(Long.parseLong(idAmigo) == idParticipante){
+                Collections.shuffle(numeros);
+            }else{            
+                EventosDAO.getInstance().atualizaAmigo(idEvento, Long.parseLong(idAmigo), idParticipante);
+                evento.getInscritos().remove(0);
+                numeros.remove(0);
+            }
         }
         
         RequestDispatcher dispacher = request.getRequestDispatcher("/WEB-INF/eventos/listInscritos.jsp");
